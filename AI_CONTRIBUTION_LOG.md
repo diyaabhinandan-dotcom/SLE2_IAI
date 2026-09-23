@@ -1,100 +1,69 @@
 # AI Contribution Log — SLE-2
 
-**Course:** 02AML204 – Introduction to Artificial Intelligence  
-**PRN:** 25UAM015 
-**Name:** DIYA ABHINANDAN TELNADE  
-**Division:** A  
-**Date:** 22-09-2026  
-**Assignment:** SLE-2 — Profiling Report (Empirical Performance Analysis)
+## 1. Task-Wise Contribution Table
+
+| # | Task | Done By | AI Tool Used | AI's Role | My Role | Evidence |
+|---|------|---------|--------------|-----------|---------|----------|
+| 1 | Designing the weighted graph (8 nodes A–H, 9 edges) | Me | — | — | Full design | `common.py` line 4–13 |
+| 2 | Creating the heuristic h(n) values | Me | — | — | Full design | `common.py` line 16–19 |
+| 3 | Dijkstra algorithm structure | Me + AI | ChatGPT | Provided boilerplate `heapq` skeleton | Modified variables, added `nodes_expanded` counter | `dijkstra_code.py` |
+| 4 | Greedy Best-First Search structure | Me + AI | ChatGPT | Provided core search loop | Added path + cost tracking, tested on my graph | `greedy_code.py` |
+| 5 | `timeit` benchmark syntax | AI | ChatGPT | Gave `timeit.repeat()` + µs conversion formula | Wrote full `run_*.py` scripts, chose runs | `run_dijkstra.py`, `run_greedy.py` |
+| 6 | py-spy installation + Windows debugging | Me + AI | ChatGPT | Explained full-path invocation on Windows | Ran install, debugged "module not found" | Terminal history |
+| 7 | Running 50,000 benchmark iterations | Me | — | — | Executed all runs | Terminal output |
+| 8 | Generating flame graphs | Me | — | — | Ran py-spy on both scripts | `profile_*.svg` |
+| 9 | Collecting all measured numbers | Me | — | — | Recorded 15+ data points | Results table |
+| 10 | Interpreting flame graphs (heapq hot spot) | Me | — | — | Own analysis | Justification section |
+| 11 | Writing justification & conclusion | Me + AI | ChatGPT | Phrasing suggestions | Inserted real numbers, rewrote parts | Report §4, §6 |
+| 12 | Creating README.md | Me | — | — | Full authoring | `README.md` |
+| 13 | Creating this AI log | Me | — | — | Full authoring | `AI_CONTRIBUTION_LOG.md` |
+| 14 | Pushing to GitHub | Me | — | — | Full git workflow | GitHub repo |
 
 ---
 
-## 🤖 AI Tools Used
+## 2. Contribution Percentage Summary
 
-| Tool | Version / Model | Purpose |
-|------|----------------|---------|
-| ChatGPT | GPT-5 | Code scaffolding, syntax help, wording of analysis |
-| GitHub Copilot | N/A | Not used in this SLE |
-
----
-
-## ✅ What AI Helped With
-
-### 1. Code Boilerplate
-- **Prompt used:** "Give me a clean Python implementation of Dijkstra's algorithm using heapq with node-count tracking."
-- **What AI provided:** The initial structure of `dijkstra_code.py` including the priority queue setup, best_cost dictionary, and heap push/pop logic.
-- **My modifications:** Added the `nodes_expanded` counter, renamed variables for consistency, and integrated with my `common.py`.
-
-### 2. Greedy Best-First Search Implementation
-- **Prompt used:** "Write Greedy Best-First Search in Python with a visited set and heuristic priority."
-- **What AI provided:** The core loop of `greedy_code.py`.
-- **My modifications:** Ensured the path and cost were tracked alongside the priority, tested against my graph.
-
-### 3. Timing Syntax
-- **Prompt used:** "Show me the correct timeit.repeat syntax to measure a function and convert to microseconds."
-- **What AI provided:** The `per_run_us = [(t / NUMBER) * 1e6 for t in results]` formula used in `run_dijkstra.py` and `run_greedy.py`.
-
-### 4. py-spy Command Syntax (Windows)
-- **Prompt used:** "py-spy record fails on Windows with 'not recognized'. How do I invoke it?"
-- **What AI provided:** Guidance to use the full path (`C:\Users\...\Scripts\py-spy.exe`) instead of relying on PATH.
-
-### 5. Wording of Analysis
-- **Prompt used:** "Help me write a 5-8 line justification comparing Dijkstra and Greedy based on runtime and nodes expanded."
-- **What AI provided:** The initial phrasing of the justification paragraph.
-- **My modifications:** Inserted my actual measured numbers (7.86 µs, 3.213 µs, 7 vs 4 nodes) and rewrote parts to match my results.
+| Contributor | Role | Approx. Contribution |
+|-------------|------|---------------------|
+| **Me (Student)** | Design, execution, measurement, analysis, documentation | **~85%** |
+| **ChatGPT** | Syntax help, boilerplate templates, wording suggestions | **~15%** |
 
 ---
 
-## 🧑‍💻 What I Did Myself
+## 3. What AI Did NOT Do
 
-### Design & Setup
-- Chose the **weighted directed graph** (8 nodes, A→H) with multiple paths of different costs.
-- Designed the **heuristic h(n)** values for each node.
-- Created `common.py` to share graph + heuristic between both algorithms.
-
-### Execution
-- Installed and configured **py-spy** on Windows.
-- Debugged the "No module named py_spy" issue and switched to full-path invocation.
-- Ran all benchmarks: `python run_dijkstra.py` and `python run_greedy.py`.
-- Generated both flame graphs using py-spy.
-- Collected **all 15+ data points** in the results table.
-
-### Analysis
-- Interpreted the flame graphs and identified `heapq.heappush` / `heappop` as the hot functions.
-- Wrote the **justification** based on my own measured data — specifically the speed vs optimality trade-off (Dijkstra: 7.86 µs, cost 6; Greedy: 3.213 µs, cost 12).
-- Verified that both algorithms expanded all nodes in the unreachable-goal scenario.
-- Wrote the conclusion based on personal learning.
-
-### Documentation
-- Created `README.md` for the GitHub repo.
-- Created this `AI_CONTRIBUTION_LOG.md`.
-- Prepared the final Word report.
-- Uploaded the repo and pushed via git.
+| Task | Status |
+|------|--------|
+| Running any benchmark | ❌ Not done by AI |
+| Choosing the graph structure | ❌ Not done by AI |
+| Deciding heuristic values | ❌ Not done by AI |
+| Generating flame graphs | ❌ Not done by AI |
+| Fabricating measured numbers | ❌ Not done by AI |
+| Pushing code to GitHub | ❌ Not done by AI |
+| Writing final conclusion | ❌ Not done by AI (only phrasing) |
 
 ---
 
-## 🚫 What AI Did NOT Do
+## 4. AI Tool Details
 
-- ❌ Did NOT run any benchmarks
-- ❌ Did NOT decide the graph structure or heuristic
-- ❌ Did NOT generate flame graphs
-- ❌ Did NOT collect or fabricate any measured numbers
-- ❌ Did NOT write the final conclusion (only helped with phrasing)
-- ❌ Did NOT push code to GitHub
-
-All **measured results and interpretations are my own**.
+| Tool | Version / Model | Total Prompts Used | Purpose |
+|------|----------------|-------------------|---------|
+| ChatGPT | GPT-5 | ~6 prompts | Code scaffolding, syntax, wording |
 
 ---
 
-## 📝 Honest Note
+## 5. Sample Prompts Used
 
-I used ChatGPT as a **learning assistant**, not as a code generator that did the assignment for me. The AI helped me understand unfamiliar syntax (timeit, py-spy on Windows) and provided starting templates for standard algorithm implementations. Every number in the report was measured by me on my machine, every flame graph was generated from my code, and every analysis sentence reflects my own understanding of the results.
-
-The purpose of this log is to be **transparent** about my AI usage, as required by the SLE-2 guidelines (Section 5: AI Contribution Note).
+| # | Prompt | What AI Returned | How I Used It |
+|---|--------|------------------|---------------|
+| 1 | "Write Dijkstra's algorithm in Python using heapq." | Basic implementation | Rewrote with my variable names, added node counter |
+| 2 | "Write Greedy Best-First Search in Python with heuristic priority." | Core loop | Added path + cost tracking |
+| 3 | "How to use timeit.repeat to measure a function in microseconds?" | Syntax formula | Used in `run_*.py` |
+| 4 | "py-spy not recognized on Windows — how to invoke?" | Full-path command | Ran flame graphs |
+| 5 | "Help me phrase a 5-line justification for Dijkstra vs Greedy based on time and nodes." | Draft paragraph | Inserted my real numbers |
 
 ---
 
-**Signed:**  
-DIYA ABHINANDAN TELANDE  
-PRN: 25UAM015
-Date: 22-09-2026
+## 6. Honest Declaration
+
+I used ChatGPT as a **learning assistant and syntax reference**, not as a code generator that completed the assignment for me. Every measured number, every flame graph, and every analysis sentence in my report reflects my own work. The purpose of this log is to be fully transparent about my AI usage, as required by the SLE-2 guidelines.
